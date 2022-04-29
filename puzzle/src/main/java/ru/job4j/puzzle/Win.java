@@ -1,35 +1,39 @@
 package ru.job4j.puzzle;
 
 public class Win {
+
     public static boolean check(int[][] board) {
-        return isHorizontalWin(board) || isVerticalWin(board);
-    }
-
-    public static boolean isHorizontalWin(int[][] board) {
-        for (int i = 0; i < board.length; i++) {
-            for (int j = 0; j < board[i].length; j++) {
-                if (board[i][j] != 1) {
-                    break;
-                }
-                if (j == board[i].length - 1) {
-                    return true;
-                }
+        boolean result = false;
+        for (int row = 0; row < board.length; row++) {
+            if (board[row][row] == 1
+                    && (isHorizontalWin(board, row) || isVerticalWin(board, row))) {
+                result = true;
+                break;
             }
         }
-        return false;
+        return result;
     }
 
-    public static boolean isVerticalWin(int[][] board) {
-        for (int i = 0; i < board.length; i++) {
-            for (int j = 0; j < board.length; j++) {
-                if (board[j][i] != 1) {
-                    break;
-                }
-                if (j == board.length - 1) {
-                    return true;
-                }
+    public static boolean isHorizontalWin(int[][] board, int row) {
+        boolean result = true;
+        for (int cell = 0; cell < board[row].length; cell++) {
+            if (board[row][cell] != 1) {
+                result = false;
+                break;
             }
         }
-        return false;
+        return result;
     }
+
+    public static boolean isVerticalWin(int[][] board, int column) {
+        boolean result = true;
+        for (int row = 0; row < board.length; row++) {
+            if (board[row][column] != 1) {
+                result = false;
+                break;
+            }
+        }
+        return result;
+    }
+
 }
