@@ -12,6 +12,7 @@ public class LogicTest {
         logic.add(new BishopBlack(Cell.C1));
         logic.move(Cell.C2, Cell.D3);
     }
+
     @Test(expected = OccupiedCellException.class)
     public void whenCellOccupied()
             throws FigureNotFoundException, ImpossibleMoveException, OccupiedCellException {
@@ -20,6 +21,7 @@ public class LogicTest {
         logic.add(new BishopBlack(Cell.D2));
         logic.move(Cell.C1, Cell.E3);
     }
+
     @Test(expected = ImpossibleMoveException.class)
     public void whenImpossibleMove()
             throws FigureNotFoundException, ImpossibleMoveException, OccupiedCellException {

@@ -12,11 +12,13 @@ public class BishopBlackTest {
         BishopBlack bishopBlack = new BishopBlack(Cell.C8);
         assertThat(bishopBlack.position(), is(Cell.C8));
     }
+
     @Test
     public void testCopy() {
         BishopBlack bishopBlack = new BishopBlack(Cell.C8);
         assertThat(bishopBlack.copy(Cell.D7).position(), is(Cell.D7));
     }
+
     @Test
     public void testWay() {
         BishopBlack bishopBlack = new BishopBlack(Cell.C1);
@@ -27,6 +29,7 @@ public class BishopBlackTest {
             assertThat(bishopWay[i], is(testWay[i]));
         }
     }
+
     @Test
     public void testIsDiagonal() {
         BishopBlack bishopBlack = new BishopBlack(Cell.C1);
