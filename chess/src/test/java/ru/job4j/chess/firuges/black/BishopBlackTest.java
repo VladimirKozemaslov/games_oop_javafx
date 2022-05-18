@@ -24,10 +24,7 @@ public class BishopBlackTest {
         BishopBlack bishopBlack = new BishopBlack(Cell.C1);
         Cell[] bishopWay = bishopBlack.way(Cell.G5);
         Cell[] testWay = new Cell[] {Cell.D2, Cell.E3, Cell.F4, Cell.G5};
-        assertThat(bishopWay.length, is(bishopWay.length));
-        for (int i = 0; i < bishopWay.length; i++) {
-            assertThat(bishopWay[i], is(testWay[i]));
-        }
+        assertThat(bishopWay, is(testWay));
     }
 
     @Test
